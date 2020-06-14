@@ -3,12 +3,8 @@ let container = document.getElementById('container');
 
 function makegrid(grid){
     
-    // size=40;
-    // if(grid>16){size=grid};
-    // if(grid>32){size=grid/5};
-    //console.log(size,'px');
-    container.style.gridTemplateColumns = `repeat(${grid}, 10fr)`;
-    container.style.gridTemplateRows = `repeat(${grid}, 10fr)`;
+    container.style.gridTemplateColumns = `repeat(${grid}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${grid}, 1fr)`;
     for(let i=0;i<(grid*grid);i++){
         let cell = document.createElement('div');
         container.appendChild(cell).className = "gridCell";
@@ -32,5 +28,6 @@ let cells = Array.from(gridCell);
 cells.forEach(elem => {
     elem.addEventListener('mouseover', () => {
         elem.style.backgroundColor = 'black';
+        elem.style.border = '1px solid white';
     });
 });
