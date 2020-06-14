@@ -23,7 +23,7 @@ function makegrid(grid){
 function request(){
     clearGrid();
     let gridSize = Number(prompt('Enter a grid size you want (Max size 64)'));
-    if(gridSize>64 || gridSize==""){
+    if(gridSize>64 || gridSize===0 || gridSize!=(typeof Number)){
         alert('Dude, I just told you the max size');
         makegrid(16);
     } else{
@@ -34,6 +34,13 @@ function request(){
 
 request();
 
+function randomColor(){
+    let colors = ['RGB(192, 192, 192)', 'RGB(128, 128, 128)', 'RGB(255, 0, 0)', 'RGB(128, 0, 0)', 'RGB(255, 255, 0)', 'RGB(128, 128, 0)', 'RGB(0, 255, 0)', 'RGB(0, 128, 0)', 'RGB(0, 255, 255)', 'RGB(0, 128, 128)', 'RGB(0, 0, 255)', 'RGB(0, 0, 128)', 'RGB(255, 0, 255))', 'RGB(128, 0, 128))', 'RGB(255, 87, 51)', 'RGB(255, 160, 122)', 'RGB(233, 150, 122)', 'RGB(250, 128, 114)', 'RGB(240, 128, 128)', 'RGB(205, 92, 92)', 'RGB(128,0,0)', 'RGB(139,0,0)', 'RGB(165,42,42)', 'RGB(178,34,34)', 'RGB(220,20,60)', 'RGB(255,99,71)', 'RGB(255,127,80)', 'rgb(184,134,11)'];
+
+    let value = Math.floor(Math.random()*(colors.length-1)
+    );
+    return colors[value];
+}
 function paintBlack(){
     let gridCell = document.querySelectorAll('.gridCell');
     let cells = Array.from(gridCell);
@@ -54,6 +61,16 @@ function eraseCell() {
         });
     });
 }
+function colorfulCell() {
+    let gridCell = document.querySelectorAll('.gridCell');
+    let colorCells = Array.from(gridCell);
+    colorCells.forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+            elem.style.backgroundColor = randomColor();
+            elem.style.borderColor = "#d8d8d8";
+        });
+    });
+}
 
 resetBtn.addEventListener('click', () => {
     request();
@@ -64,4 +81,7 @@ eraseBtn.addEventListener('click', () => {
 })
 blackBtn.addEventListener('click', () => {
     paintBlack();
+})
+colorBtn.addEventListener('click', () => {
+    colorfulCell();
 })
