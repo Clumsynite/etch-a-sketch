@@ -3,6 +3,7 @@ let resetBtn = document.getElementById('reset');
 let eraseBtn = document.getElementById('erase');
 let blackBtn = document.getElementById('blackBtn');
 let colorBtn = document.getElementById('colorful');
+let shadesBtn = document.getElementById('shades');
 
 function clearGrid() {
     if(container.hasChildNodes()){
@@ -23,7 +24,6 @@ function makegrid(grid){
 function request(){
     clearGrid();
     let gridSize = Number(prompt('Enter a grid size you want (Max size 64)'));
-    console.log(gridSize)
     if(gridSize>64 || gridSize===0 ){
         alert('Dude, I just told you the max size');
         makegrid(16);
@@ -72,6 +72,20 @@ function colorfulCell() {
         });
     });
 }
+function shadesCell() {
+    let gridCell = document.querySelectorAll('.gridCell');
+    let shadesCell = Array.from(gridCell);
+    let blackShades =['#7a7a7a', '#707070', '#666666', '#5c5c5c', '#525252', '#474747', "#3d3d3d", '#333333', '#292929', '#1f1f1f', '#141414', '#0a0a0a', '#000000'];
+    let val = 0;
+    shadesCell.forEach(elem => {
+        elem.addEventListener('mouseenter', () => {
+            if (val<10){val++;}
+            elem.style.backgroundColor = "black";
+            elem.style.opacity = Number(elem.style.opacity)+0.1;
+            elem.style.borderColor = "#d8d8d8";
+        });
+    });
+}
 
 resetBtn.addEventListener('click', () => {
     request();
@@ -85,4 +99,7 @@ blackBtn.addEventListener('click', () => {
 })
 colorBtn.addEventListener('click', () => {
     colorfulCell();
+})
+shadesBtn.addEventListener('click', () => {
+    shadesCell();
 })
