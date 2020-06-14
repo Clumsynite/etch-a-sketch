@@ -9,13 +9,25 @@
 
 .control {
   background-color: black;
-  color: cyan;
+  color: #d8d8d8;
   padding: 10px;
   font-size: 20px;
   font-weight: bold;
   border-radius: 40px;
   border: none;
   outline: none;
+}
+#erase {
+  color: white;
+  background-color: black;
+}
+#blackBtn {
+  color: black;
+  background-color: lightgoldenrodyellow;
+}
+#colorful {
+  color: white;
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, #4b0082, violet);
 }
 
 #container {
@@ -40,7 +52,18 @@
   border: 1px solid #d8d8d8;
 }
 
-.blackCell {
+.colorful {
   border: 1px solid white;
-  background-color: black;
+
+}
+
+@media only screen and (max-width: 380px) {
+  #container {
+    height: 320px;
+    width: 320px;
+    transform: scale(0.9);
+  }
+  #controls {
+    transform: scale(0.8);
+  }
 }
