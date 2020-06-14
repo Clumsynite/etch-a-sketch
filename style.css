@@ -56,6 +56,11 @@
   border: 1px solid white;
 
 }
+#expert {
+  text-align: center;
+}
+#shades {
+}
 
 @media only screen and (max-width: 380px) {
   #container {

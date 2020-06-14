@@ -23,7 +23,8 @@ function makegrid(grid){
 function request(){
     clearGrid();
     let gridSize = Number(prompt('Enter a grid size you want (Max size 64)'));
-    if(gridSize>64 || gridSize===0 || gridSize!=(typeof Number)){
+    console.log(gridSize)
+    if(gridSize>64 || gridSize===0 ){
         alert('Dude, I just told you the max size');
         makegrid(16);
     } else{
