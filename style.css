@@ -1,0 +1,17 @@
+#container {
+  display: grid;
+  gap: 1px;
+  position: absolute;
+  width:600px;
+  height: 600px;
+  max-width: 960px;
+  max-height: 960px;
+  box-sizing: border-box;
+  border: 1px solid red; 
+  text-align: center; 
+  margin: 5%;
+}
+
+.gridCell {
+  border: 1px solid black;
+}
