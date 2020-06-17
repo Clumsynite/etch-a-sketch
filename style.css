@@ -70,11 +70,11 @@
   background-image: linear-gradient(to right, #7a7a7a, #707070, #666666, #5c5c5c, #525252, #474747, #3d3d3d, #333333, #292929, #1f1f1f, #141414, #0a0a0a, #000000);
 }
 
-button:active {
-  opacity: 0.8;
+button:focus {
+  border: 2px solid blue;
 }
 button:hover {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 @media only screen and (max-width: 380px) {
   #container {
